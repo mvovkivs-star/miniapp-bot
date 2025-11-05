@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Mini App Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f0f0f0;
-      margin: 0;
-      padding: 50px;
-    }
-    .box {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5×5 Mines • Demo TON</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-  <div class="box">
-    <h1>Привіт, Матвій 👋</h1>
-    <p>Це тестова Mini App сторінка.</p>
-    <button onclick="alert('Кнопка працює!')">Натисни мене</button>
-  </div>
+  <header>
+    <h1>5×5 Mines • Demo TON</h1>
+    <p>Чесний сид: <span id="seed"></span></p>
+  </header>
+
+  <section class="controls">
+    <div class="control">
+      <label>Бомби:</label>
+      <input type="range" id="bombs" min="1" max="10" value="5" />
+      <span id="bombsValue">5</span>
+    </div>
+    <div class="control">
+      <label>Ставка (TON, демо):</label>
+      <input type="number" id="stake" min="0.1" step="0.1" value="1.0" />
+    </div>
+    <div class="actions">
+      <button id="newGame">Нова гра</button>
+      <button id="cashout" disabled>Забрати виграш</button>
+    </div>
+    <p class="balance">Баланс: <span id="balance">100.0</span> TON (демо)</p>
+    <p class="status" id="status">Натисни «Нова гра»</p>
+  </section>
+
+  <section class="grid" id="grid"></section>
+
+  <footer>
+    <button id="sendResult">Надіслати результат у бот</button>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
