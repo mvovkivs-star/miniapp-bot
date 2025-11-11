@@ -1,41 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>5×5 Mines • Demo TON</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta charset="utf-8">
+  <title>Адмінпанель</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>5×5 Mines • Demo TON</h1>
-    <p>Чесний сид: <span id="seed"></span></p>
-  </header>
+  <h1>Адмінпанель</h1>
 
-  <section class="controls">
-    <div class="control">
-      <label>Бомби:</label>
-      <input type="range" id="bombs" min="1" max="10" value="5" />
-      <span id="bombsValue">5</span>
-    </div>
-    <div class="control">
-      <label>Ставка (TON, демо):</label>
-      <input type="number" id="stake" min="0.1" step="0.1" value="1.0" />
-    </div>
-    <div class="actions">
-      <button id="newGame">Нова гра</button>
-      <button id="cashout" disabled>Забрати виграш</button>
-    </div>
-    <p class="balance">Баланс: <span id="balance">100.0</span> TON (демо)</p>
-    <p class="status" id="status">Натисни «Нова гра»</p>
+  <section id="login">
+    <h2>Логін</h2>
+    <input id="user" placeholder="username">
+    <input id="pass" type="password" placeholder="password">
+    <button id="loginBtn">Увійти</button>
+    <p id="loginInfo"></p>
   </section>
 
-  <section class="grid" id="grid"></section>
+  <section id="userOps" style="display:none;">
+    <h2>Користувач</h2>
+    <input id="tgid" placeholder="telegram_id">
+    <button id="fetchBtn">Отримати</button>
+    <pre id="userInfo"></pre>
 
-  <footer>
-    <button id="sendResult">Надіслати результат у бот</button>
-  </footer>
+    <h3>Змінити баланс (дельта)</h3>
+    <input id="delta" type="number" step="0.01" placeholder="+/- сума">
+    <input id="reasonDelta" placeholder="причина">
+    <button id="deltaBtn">Застосувати</button>
+
+    <h3>Встановити баланс (точно)</h3>
+    <input id="setBal" type="number" step="0.01" placeholder="баланс">
+    <input id="reasonSet" placeholder="причина">
+    <button id="setBtn">Зберегти</button>
+
+    <h3>Блокування</h3>
+    <input id="reasonBlock" placeholder="причина">
+    <button id="blockBtn">Заблокувати</button>
+    <button id="unblockBtn">Розблокувати</button>
+  </section>
 
   <script src="app.js"></script>
 </body>
